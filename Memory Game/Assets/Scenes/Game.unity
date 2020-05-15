@@ -481,6 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b812fa43ec91541afa21c132062e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   color: {fileID: 375729804}
 --- !u!1 &450377099
 GameObject:
@@ -1155,7 +1156,6 @@ MonoBehaviour:
   green: {fileID: 944840340}
   purple: {fileID: 375729804}
   yellow: {fileID: 1718478401}
-  animator: {fileID: 0}
 --- !u!1 &903958061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,6 +1450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b812fa43ec91541afa21c132062e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   color: {fileID: 944840340}
 --- !u!1 &969506116
 GameObject:
@@ -1547,7 +1548,6 @@ MonoBehaviour:
   green: {fileID: 0}
   purple: {fileID: 0}
   yellow: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!1 &1028618263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,7 +1859,7 @@ TilemapRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.014999986, y: 0.014999986, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -1874,41 +1874,78 @@ Tilemap:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322646174}
   m_Enabled: 1
-  m_Tiles: {}
+  m_Tiles:
+  - first: {x: 4, y: -4, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
+  - first: {x: 4, y: -3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
+  - first: {x: 4, y: -2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
+  - first: {x: 4, y: -1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 4
+    m_Data: {fileID: 11400000, guid: 89313fbaf856fd64f81ebdac3f9ca131, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 4
+    m_Data: {fileID: 6223240024533733091, guid: a3dc09e519f42814b8ed50adc12732c6,
+      type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 0
+  - m_RefCount: 4
     m_Data:
-      e00: NaN
-      e01: -2.1919525e-38
+      e00: 1
+      e01: 0
       e02: 0
-      e03: NaN
-      e10: NaN
-      e11: 3.45e-43
+      e03: 0
+      e10: 0
+      e11: 1
       e12: 0
-      e13: NaN
-      e20: -2.1919503e-38
+      e13: 0
+      e20: 0
       e21: 0
-      e22: 0
+      e22: 1
       e23: 0
-      e30: 3.45e-43
+      e30: 0
       e31: 0
       e32: 0
-      e33: 0
+      e33: 1
   m_TileColorArray:
-  - m_RefCount: 0
-    m_Data: {r: -3.2070107e+10, g: -3.2070107e+10, b: -3.2070107e+10, a: -3.2070107e+10}
+  - m_RefCount: 4
+    m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -8, y: -4, z: 0}
-  m_Size: {x: 8, y: 8, z: 1}
+  m_Size: {x: 13, y: 8, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -1940,6 +1977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b812fa43ec91541afa21c132062e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1028618264}
   color: {fileID: 1322646174}
 --- !u!1 &1403853451
 GameObject:
@@ -2454,6 +2492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b812fa43ec91541afa21c132062e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   color: {fileID: 1718478401}
 --- !u!1 &1874857007
 GameObject:
