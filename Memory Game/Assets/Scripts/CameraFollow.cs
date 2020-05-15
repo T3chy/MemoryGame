@@ -5,31 +5,44 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [Range(0, 1)]
-    public float smoother;
+    public float smootherX;
+    [Range(0, 1)]
+    public float smootherY;
     public Transform player;
-    private Transform cam;
+    public Transform cam;
     private float displacement;
-    private bool isLocked;
-    public bool IsLocked 
-    {
-        get { return isLocked; } 
-        set { isLocked = value; } 
-    }
+    public bool isLocked;
+    public float camSpeed;
+
 
     private void Start()
     {
-        cam = GetComponent<Transform>();
+        isLocked = true;
+        camSpeed = .2f;
+
     }
 
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            isLocked = !isLocked;
+            
+        }
+    }
 
     void FixedUpdate()
     {
         if (isLocked)
         {
             displacement = player.position.x - cam.position.x;
-            cam.position = new Vector3(cam.position.x + (displacement * smoother), player.position.y, cam.position.z);
+            cam.position = new Vector3(cam.position.x + (displacement * smootherX), player.position.y + (displacement * smootherY), cam.position.z);
         }
-        
+        else
+        {
+            cam.position= new Vector3(cam.position.x + Input.GetAxisRaw("Horizontal") * camSpeed, cam.position.y + Input.GetAxisRaw("Vertical") * camSpeed, cam.position.z);
+
+        }
+
     }
 }
