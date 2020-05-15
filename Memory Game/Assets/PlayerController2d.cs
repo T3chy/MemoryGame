@@ -15,7 +15,7 @@ public class PlayerController2d : MonoBehaviour
     public LayerMask whatIsGround;
     public int extraJumpsVal;
     private int extraJumps;
-
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,16 +26,21 @@ void Update(){
     if (isGrounded == true){
         extraJumps = extraJumpsVal;
     }
-    if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0){
+
+    if(Input.GetKeyDown(KeyCode.W) && extraJumps == 0 && isGrounded == true){
+    rb.velocity = Vector2.up * jumpForce;
+    Debug.Log("jumpin off da floor");
+    }
+    else if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0){
         rb.velocity = Vector2.up * jumpForce;
         extraJumps--;
     }
-    else if(Input.GetKeyDown(KeyCode.W) && extraJumps == 0 && isGrounded == true){
-            rb.velocity = Vector2.up * jumpForce;
-    }
+
+
 }
     void FixedUpdate(){
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position,checkRadius,whatIsGround);
+    animator.SetFloat("Speed",Mathf.Abs(moveInput));
+    isGrounded = Physics2D.OverlapCircle(groundCheck.position,checkRadius,whatIsGround);
     moveInput = Input.GetAxis("Horizontal");
     rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     if(facingRight == false && moveInput > 0){
