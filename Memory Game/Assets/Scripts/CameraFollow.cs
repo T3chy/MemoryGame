@@ -18,7 +18,7 @@ public class CameraFollow : MonoBehaviour {
 	float smoothLookVelocityX;
 	float smoothVelocityY;
 
-	bool lookAheadStopped;
+    bool lookAheadStopped;
 
     private bool isLocked;
     private Transform cam;
