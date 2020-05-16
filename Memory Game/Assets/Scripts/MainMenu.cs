@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         startButton.onClick.AddListener(startGame);
-        levelSelectButton.onClick.AddListener(restartGame);
+        levelSelectButton.onClick.AddListener(levelSelect);
         gameInfoButton.onClick.AddListener(gameInfo);
         quitButton.onClick.AddListener(quitGame);
     }
@@ -31,8 +31,10 @@ public class MainMenu : MonoBehaviour
         Thread.Sleep(transitionTime*1000);
         SceneManager.LoadScene(1);
     }
-    void restartGame(){
-
+    void levelSelect(){
+        // transition.SetTrigger("Start);
+        Thread.Sleep(transitionTime*1000);
+        SceneManager.LoadScene("LevelSelect");
     }
     void gameInfo(){
 

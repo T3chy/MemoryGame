@@ -5425,6 +5425,7 @@ MonoBehaviour:
   resumeButton: {fileID: 617623468}
   restartButton: {fileID: 1945676613}
   quitButton: {fileID: 1016198647}
+  menuButton: {fileID: 1502241642}
 --- !u!114 &1497825683
 MonoBehaviour:
   m_ObjectHideFlags: 0

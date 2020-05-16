@@ -10,11 +10,13 @@ public class PauseMenu : MonoBehaviour
     public Button resumeButton;
     public Button restartButton;
     public Button quitButton;
+    public Button menuButton;
     void Start()
     {
         resumeButton.onClick.AddListener(Resume);
         restartButton.onClick.AddListener(restartGame);
         quitButton.onClick.AddListener(quitGame);
+        menuButton.onClick.AddListener(toMenu);
     }
 
     // Update is called once per frame
@@ -27,6 +29,9 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+    }
+    void toMenu () {
+        SceneManager.LoadScene("MainMenu");
     }
     void quitGame (){
         Debug.Log("quit button time");
