@@ -6036,6 +6036,7 @@ GameObject:
   - component: {fileID: 2054526042}
   - component: {fileID: 2054526041}
   - component: {fileID: 2054526040}
+  - component: {fileID: 2054526044}
   m_Layer: 9
   m_Name: fade
   m_TagString: Untagged
@@ -6077,7 +6078,7 @@ TilemapCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054526038}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -6230,6 +6231,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &2054526044
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054526038}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.664425, y: -0.5546732}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.39913368, y: 1.0406322}
+  m_EdgeRadius: 0
 --- !u!1001 &7399911084973056224
 PrefabInstance:
   m_ObjectHideFlags: 0

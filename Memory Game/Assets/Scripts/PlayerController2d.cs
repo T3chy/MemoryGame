@@ -31,6 +31,7 @@ public class PlayerController2d : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
+            Debug.Log("x pressed");
             database.Save();
         }
         else if (Input.GetKeyDown(KeyCode.C))

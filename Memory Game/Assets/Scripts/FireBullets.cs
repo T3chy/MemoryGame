@@ -4,33 +4,52 @@ using UnityEngine;
 
 public class FireBullets : MonoBehaviour
 {   
+        public List<GameObject> Bullets;
+        public List<string> forgottens;
     public float delayBetweenFires;
     [SerializeField]
     private int bulletsAmount = 10;
     [SerializeField]
     private float startAngle = 90f, endAngle = 270f;
     private Vector2 bulletMoveDirection;
+    private int colorPosition = 0;
+    private GameObject currentColor;
     void Start()
     {
         InvokeRepeating("Fire",0f,delayBetweenFires);
     }
     private void Fire()
     {
+        Debug.Log(colorPosition);
+        Debug.Log(Bullets[colorPosition].name);
+        if(forgottens.Contains(Bullets[colorPosition].name)){
         float angleStep = (endAngle - startAngle) / bulletsAmount;
         float angle = startAngle;
         for (int i = 0; i < bulletsAmount + 1; i++)
         {
+            currentColor = Bullets[colorPosition]; 
             float bulDirX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
             float bulDirY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
             Vector3 bulMoveVector = new Vector3(bulDirX,bulDirY,0f);
             Vector2 bulDir = (bulMoveVector - transform.position).normalized;
-            GameObject bul = BulletPool.bulletPoolInstance.GetBullet();
-            bul.transform.position = transform.position;
-            bul.transform.rotation = transform.rotation;
-            bul.SetActive(true);
-            Debug.Log(bul);
-            bul.GetComponent<Rigidbody2D>().velocity = bulDir;
+            // somne
+            //Debug.Log(colorDictionary[currentColor.name] + "help");
+            Debug.Log(Bullets[colorPosition]);
+                GameObject bul = (GameObject)Instantiate(Bullets[colorPosition]);
+                bul.transform.position = transform.position;
+                bul.transform.rotation = transform.rotation;
+                bul.SetActive(true);
+                Debug.Log(bul);
+                bul.GetComponent<Rigidbody2D>().velocity = bulDir;
+            
             angle += angleStep;
+
         }
+    }
+            colorPosition +=1;
+            if (colorPosition > Bullets.Count -1 )
+            {
+                colorPosition = 0;
+            }
     }
 }
