@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4279213147703562974}
   - component: {fileID: 2321302269470360826}
-  - component: {fileID: 1366331238770913183}
-  - component: {fileID: -4862439771074408319}
+  - component: {fileID: -7531710840192016772}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -84,22 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1366331238770913183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7181013881861632217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 676caaa49c28d054e8ca4671630474ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfProjectiles: 0
-  projectileSpeed: 0
-  ProjectilePrefab: {fileID: 0}
---- !u!50 &-4862439771074408319
+--- !u!50 &-7531710840192016772
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -107,7 +91,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7181013881861632217}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

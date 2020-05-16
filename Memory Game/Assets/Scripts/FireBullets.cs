@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FireBullets : MonoBehaviour
-{
+{   
+    public float delayBetweenFires;
     [SerializeField]
     private int bulletsAmount = 10;
     [SerializeField]
@@ -11,7 +12,7 @@ public class FireBullets : MonoBehaviour
     private Vector2 bulletMoveDirection;
     void Start()
     {
-        InvokeRepeating("Fire",0f,2f);
+        InvokeRepeating("Fire",0f,delayBetweenFires);
     }
     private void Fire()
     {
@@ -27,7 +28,8 @@ public class FireBullets : MonoBehaviour
             bul.transform.position = transform.position;
             bul.transform.rotation = transform.rotation;
             bul.SetActive(true);
-            bul.GetComponent<BulletScript>().SetMoveDirection(bulDir);
+            Debug.Log(bul);
+            bul.GetComponent<Rigidbody2D>().velocity = bulDir;
             angle += angleStep;
         }
     }
