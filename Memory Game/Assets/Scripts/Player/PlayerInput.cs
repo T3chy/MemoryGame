@@ -1,69 +1,69 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof (Player))]
-public class PlayerInput : MonoBehaviour {
+[RequireComponent(typeof(Player))]
+public class PlayerInput : MonoBehaviour
+{
 
-	Player player;
+    Player player;
     private bool isLocked;
     private Transform draw;
     DataHolder database;
     private Vector2 velocity;
-    private bool thinking;
     private Animator animator;
-    private float isThinking = .5f;
+    private float thinkTime;
 
-    void Start () {
-        GameObject.Find("PLayer").SetActive(true);
-        thinking = false;
+    void Start()
+    {
+
+        thinkTime = 0f;
         isLocked = true;
         draw = GetComponent<Transform>();
-		player = GetComponent<Player> ();
+        player = GetComponent<Player>();
         animator = GetComponent<Animator>();
         database = GameObject.Find("SaveState").GetComponent<DataHolder>();
-        database.Save();
+
         velocity = player.SaveVelocity();
+        database.Save();
     }
 
-	void Update () {
-        if (!thinking)
-        {
-            animator.SetBool("jumping", Input.GetKeyDown(KeyCode.UpArrow));
-            animator.SetBool("running", Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1);
-            Debug.Log("set");
-        }
-        else
-        {
-            if (isThinking > 0)
-            {
-                animator.SetBool("thinking", true);
-                isThinking -= Time.deltaTime;
-                Debug.Log("thinking");
-            }
-            else
-            {
-                thinking = false;
-                isThinking = .5f;
-            }
-        }
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Z))
         {
             isLocked = !isLocked;
         }
         if (isLocked)
         {
+
+
+            if (thinkTime <= 0f)
+            {
+                animator.SetBool("jumping", Input.GetAxisRaw("Vertical") == 1);
+                animator.SetBool("running", Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1);
+                animator.SetBool("thinking", false);
+            }
+            else
+            {
+                thinkTime -= Time.deltaTime;
+            }
+
+
             if (Input.GetKeyDown(KeyCode.X))
             {
-                thinking = true;
                 velocity = player.SaveVelocity();
                 database.Save();
+                animator.SetBool("thinking", true);
+                thinkTime = .5f;
             }
             else if (Input.GetKeyDown(KeyCode.C))
             {
-                thinking = true;
-
                 player.SetVelocity(velocity);
                 database.Load();
+                animator.SetBool("thinking", true);
+                thinkTime = .5f;
+
+
             }
             Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             if (Input.GetAxisRaw("Horizontal") != 0)
@@ -81,5 +81,5 @@ public class PlayerInput : MonoBehaviour {
                 player.OnJumpInputUp();
             }
         }
-	}
+    }
 }
