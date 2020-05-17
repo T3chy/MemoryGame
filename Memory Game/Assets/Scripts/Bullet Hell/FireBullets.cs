@@ -15,6 +15,7 @@ public class FireBullets : MonoBehaviour
     private int colorPosition = 0;
     public float speedModifier;
     private GameObject currentColor;
+    private float offset;
     void Start()
     {
         Debug.Log(forgotten.forgottenList.Count + "forgottens");
@@ -33,7 +34,7 @@ public class FireBullets : MonoBehaviour
         for (int i = 0; i < bulletsAmount + 1; i++)
         {
             currentColor = Bullets[colorPosition]; 
-            float bulDirX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
+            float bulDirX = transform.position.x + Mathf.Sin(((angle + offset) * Mathf.PI) / 180f);
             float bulDirY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
             Vector3 bulMoveVector = new Vector3(bulDirX,bulDirY,0f);
             Vector2 bulDir = (bulMoveVector - transform.position).normalized;
@@ -51,6 +52,7 @@ public class FireBullets : MonoBehaviour
 
         }
     }
+    offset = Random.Range(-5f,5f);
             colorPosition +=1;
             if (colorPosition > Bullets.Count -1 )
             {
