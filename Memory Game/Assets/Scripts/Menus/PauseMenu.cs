@@ -7,16 +7,21 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool isPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject controlsMenuUI;
     public Button resumeButton;
     public Button restartButton;
     public Button quitButton;
     public Button menuButton;
+    public Button controlsButton;
+    public Button backButton;
     void Start()
     {
         resumeButton.onClick.AddListener(Resume);
         restartButton.onClick.AddListener(restartGame);
         quitButton.onClick.AddListener(quitGame);
         menuButton.onClick.AddListener(toMenu);
+        controlsButton.onClick.AddListener(Controls);
+        backButton.onClick.AddListener(back);
     }
 
     // Update is called once per frame
@@ -52,5 +57,14 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+    }
+    void Controls () {
+        pauseMenuUI.SetActive(false);
+        controlsMenuUI.SetActive(true);
+    }
+    void back () 
+    {
+        controlsMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
     }
 }
