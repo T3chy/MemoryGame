@@ -14,5 +14,11 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene("Bullet_Hell");
 
     }
+    public static void backToPlatform(Animator transition)
+    {
+        transition.SetTrigger("Start");
+        Thread.Sleep(transitionTime*1000);
+        SceneManager.LoadScene(level);
+    }
 
 }
