@@ -9,15 +9,43 @@ public class PlayerInput : MonoBehaviour {
     private Transform draw;
     DataHolder database;
     private Vector2 velocity;
+    private bool thinking;
+    private Animator animator;
+    private float isThinking = .5f;
 
     void Start () {
+        GameObject.Find("PLayer").SetActive(true);
+        thinking = false;
         isLocked = true;
         draw = GetComponent<Transform>();
 		player = GetComponent<Player> ();
+        animator = GetComponent<Animator>();
         database = GameObject.Find("SaveState").GetComponent<DataHolder>();
+        database.Save();
+        velocity = player.SaveVelocity();
     }
 
 	void Update () {
+        if (!thinking)
+        {
+            animator.SetBool("jumping", Input.GetKeyDown(KeyCode.UpArrow));
+            animator.SetBool("running", Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1);
+            Debug.Log("set");
+        }
+        else
+        {
+            if (isThinking > 0)
+            {
+                animator.SetBool("thinking", true);
+                isThinking -= Time.deltaTime;
+                Debug.Log("thinking");
+            }
+            else
+            {
+                thinking = false;
+                isThinking = .5f;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Z))
         {
             isLocked = !isLocked;
@@ -26,11 +54,14 @@ public class PlayerInput : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
+                thinking = true;
                 velocity = player.SaveVelocity();
                 database.Save();
             }
-            else if (Input.GetKeyDown(KeyCode.C) && velocity == null)
+            else if (Input.GetKeyDown(KeyCode.C))
             {
+                thinking = true;
+
                 player.SetVelocity(velocity);
                 database.Load();
             }
