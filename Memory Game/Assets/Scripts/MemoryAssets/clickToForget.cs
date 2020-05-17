@@ -23,6 +23,7 @@ public class clickToForget : MonoBehaviour {
         Thread.Sleep(500);
         color.SetActive(false);
         forgotten.forgottenList.Add(color.name + "_bullet");
+        print(forgotten.forgottenList.Count);
         //alpha = quad.GetComponent<Renderer>().material.color;
     }       
         
