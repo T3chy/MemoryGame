@@ -18,7 +18,7 @@ public class LevelLoader : MonoBehaviour
     {
         transition.SetTrigger("Start");
         Thread.Sleep(transitionTime*1000);
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(level + 1);
     }
 
 }
