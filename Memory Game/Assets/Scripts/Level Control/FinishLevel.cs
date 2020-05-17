@@ -13,7 +13,8 @@ public class FinishLevel : MonoBehaviour
 
         if (nextlevel <= SceneManager.sceneCountInBuildSettings)
         {
-            LevelLoader.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1, transition);
+            LevelLoader.level = SceneManager.GetActiveScene().buildIndex;
+            LevelLoader.LoadLevel(transition);
         }
     }
 }

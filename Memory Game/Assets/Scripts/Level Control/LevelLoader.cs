@@ -5,15 +5,14 @@ using UnityEngine.SceneManagement;
 using System.Threading;
 public class LevelLoader : MonoBehaviour
 {
-
+    public static int level = 0;
     public static int transitionTime = 1;
-
-
-    
-    public static void LoadLevel(int levelIndex,Animator transition){
+    public static void LoadLevel(Animator transition){
         transition.SetTrigger("Start");
         Thread.Sleep(transitionTime*1000);
-        SceneManager.LoadScene(levelIndex);
+        
+        SceneManager.LoadScene("Bullet_Hell");
 
     }
+
 }
