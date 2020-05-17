@@ -13,16 +13,19 @@ public class FireBullets : MonoBehaviour
     private float startAngle = 90f, endAngle = 270f;
     private Vector2 bulletMoveDirection;
     private int colorPosition = 0;
+    public float speedModifier;
     private GameObject currentColor;
     void Start()
     {
+        delayBetweenFires = (forgotten.forgottenList.Count / Bullets.Count)* 2f + 1;
+        speedModifier = forgotten.forgottenList.Count + 1;
         InvokeRepeating("Fire",0f,delayBetweenFires);
     }
     private void Fire()
     {
         Debug.Log(colorPosition);
         Debug.Log(Bullets[colorPosition].name);
-        if(forgottens.Contains(Bullets[colorPosition].name)){
+        if(forgotten.forgottenList.Contains(Bullets[colorPosition].name)){
         float angleStep = (endAngle - startAngle) / bulletsAmount;
         float angle = startAngle;
         for (int i = 0; i < bulletsAmount + 1; i++)
@@ -40,7 +43,7 @@ public class FireBullets : MonoBehaviour
                 bul.transform.rotation = transform.rotation;
                 bul.SetActive(true);
                 Debug.Log(bul);
-                bul.GetComponent<Rigidbody2D>().velocity = bulDir;
+                bul.GetComponent<Rigidbody2D>().velocity = bulDir* speedModifier ;
             
             angle += angleStep;
 
