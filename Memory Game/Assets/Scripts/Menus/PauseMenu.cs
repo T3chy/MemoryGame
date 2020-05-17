@@ -48,10 +48,13 @@ public class PauseMenu : MonoBehaviour
     }
     void Resume()
     {
+        if(controlsMenuUI.activeSelf){
+            back();
+        }else{
                 pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
-    }
+    }}
     void Pause ()
     {
         pauseMenuUI.SetActive(true);
