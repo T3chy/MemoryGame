@@ -19,7 +19,8 @@ public class Timer : MonoBehaviour
         timeLeft -= Time.deltaTime;
         timeRemainingText.text = timeLeft.ToString() + " sec";
         if (timeLeft < 0) {
-        LevelLoader.LoadLevel(transition);
+        forgotten.forgottenList = new List<string>();
+        LevelLoader.backToPlatform(transition);
         }
     }
 }

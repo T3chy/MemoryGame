@@ -17,7 +17,8 @@ public class FireBullets : MonoBehaviour
     private GameObject currentColor;
     void Start()
     {
-        Debug.Log(forgotten.forgottenList.Count);
+        Debug.Log(forgotten.forgottenList.Count + "forgottens");
+        Debug.Log(forgotten.forgottenList[0]);
         delayBetweenFires = (forgotten.forgottenList.Count / Bullets.Count)* 2f + 1;
         speedModifier = forgotten.forgottenList.Count + 1;
         InvokeRepeating("Fire",0f,delayBetweenFires);

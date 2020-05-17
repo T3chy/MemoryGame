@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class hitDetection : MonoBehaviour
 {
     int startHealth;
@@ -14,5 +15,9 @@ public class hitDetection : MonoBehaviour
 Destroy(other);
  startHealth -= 1;
  healthtext.text = startHealth.ToString();
+ if (startHealth <= 0)
+ {
+     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+ }
 }
 }
