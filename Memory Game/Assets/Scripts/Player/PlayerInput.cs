@@ -68,6 +68,7 @@ public class PlayerInput : MonoBehaviour
             Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             if (Input.GetAxisRaw("Horizontal") != 0)
             {
+
                 draw.localScale = new Vector3(Mathf.Abs(draw.localScale.x) * Input.GetAxisRaw("Horizontal"), draw.localScale.y, draw.localScale.z);
             }
             player.SetDirectionalInput(directionalInput);

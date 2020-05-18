@@ -10,15 +10,22 @@ public class LevelLoader : MonoBehaviour
     public static void LoadLevel(Animator transition){
         transition.SetTrigger("Start");
         Thread.Sleep(transitionTime*1000);
-        
+        if (level > 3) { 
         SceneManager.LoadScene("Bullet_Hell");
-
+        }else {
+            backToPlatform(transition);
+        }
     }
     public static void backToPlatform(Animator transition)
     {
+        level = level + 1;
+        if ((level >= SceneManager.GetActiveScene().buildIndex) && (SceneManager.GetActiveScene().name == "bullet_hell")) {
+                    Application.Quit();
+        }else{
         transition.SetTrigger("Start");
         Thread.Sleep(transitionTime*1000);
-        SceneManager.LoadScene(level + 1);
-    }
+        forgotten.forgottenList = new List<string>();
+        SceneManager.LoadScene(level);
+    }}
 
 }

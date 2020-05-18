@@ -8,7 +8,7 @@ public class hitDetection : MonoBehaviour
     int startHealth;
     public Text healthtext;
     void Start(){
-    startHealth = 5 - forgotten.forgottenList.Count;
+    startHealth = 5;
     healthtext.text = startHealth.ToString();
     }
     private void OnTriggerEnter2D(Collider2D other){

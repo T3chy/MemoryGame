@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Threading;
-using UnityEngine.SceneManagement;
 public class LevelSelect : MonoBehaviour
 {
    //public Animator transition;

@@ -42,7 +42,8 @@ public class Player : MonoBehaviour {
 	void Update() {
 		CalculateVelocity ();
 		HandleWallSliding ();
-
+		if (velocity.x > 1 && velocity.y == 0) {
+		}
 		controller.Move (velocity * Time.deltaTime, directionalInput);
 
 		if (controller.collisions.above || controller.collisions.below) {

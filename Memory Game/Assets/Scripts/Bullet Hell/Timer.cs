@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     float timeLeft;
     void Start()
     {
-        timeLeft = 20 + (20 * forgotten.forgottenList.Count);
+        timeLeft = 10+(20 * forgotten.forgottenList.Count);
         timeRemainingText.text = timeLeft.ToString() + " sec";
     }
 

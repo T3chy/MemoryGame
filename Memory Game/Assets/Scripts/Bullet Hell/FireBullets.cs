@@ -21,7 +21,7 @@ public class FireBullets : MonoBehaviour
         Debug.Log(forgotten.forgottenList[0]);
         delayBetweenFires = (forgotten.forgottenList.Count / Bullets.Count)* 2f + 1;
         speedModifier = forgotten.forgottenList.Count + 1;
-        InvokeRepeating("Fire",0f,delayBetweenFires);
+        InvokeRepeating("Fire",0f,delayBetweenFires + Random.Range(-1,1));
     }
     private void Fire()
     {
