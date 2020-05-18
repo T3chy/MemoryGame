@@ -10,7 +10,7 @@ public class FireBullets : MonoBehaviour
     [SerializeField]
     private int bulletsAmount = 10;
     [SerializeField]
-    private float startAngle = 90f, endAngle = 270f;
+    private float startAngle = 0f, endAngle = 360f;
     private Vector2 bulletMoveDirection;
     private int colorPosition = 0;
     public float speedModifier;
@@ -34,8 +34,8 @@ public class FireBullets : MonoBehaviour
         for (int i = 0; i < bulletsAmount + 1; i++)
         {
             currentColor = Bullets[colorPosition]; 
-            float bulDirX = transform.position.x + Mathf.Sin(((angle + offset) * Mathf.PI) / 180f);
-            float bulDirY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
+            float bulDirX = transform.position.x + Mathf.Sin(((angle + offset) * Mathf.PI) / 360f);
+            float bulDirY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 360f);
             Vector3 bulMoveVector = new Vector3(bulDirX,bulDirY,0f);
             Vector2 bulDir = (bulMoveVector - transform.position).normalized;
             // somne
